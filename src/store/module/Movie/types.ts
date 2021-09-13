@@ -1,0 +1,4 @@
+export enum MovieTypes {
+    GET_UPCOMING_REQUEST = 'movie/GET_UPCOMING_REQUEST',
+    GET_UPCOMING_SUCCESS = 'movie/GET_UPCOMING_SUCCESS',
+}

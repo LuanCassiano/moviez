@@ -9,7 +9,7 @@ declare global {
 }
 
 if (__DEV__) {
-    const tron = Reactotron.configure({ host: '192.168.100.64' })
+    const tron = Reactotron.configure({ host: '192.168.100.2' })
         .useReactNative()
         .use(reactotronRedux())
         .use(reactotronSaga({ except: [''] }))

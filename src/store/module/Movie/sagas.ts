@@ -10,7 +10,7 @@ import { API_KEY } from '../../../global/Constants';
 
 import { MovieTypes } from './types';
 
-import { getUpcomingSuccess } from './actions';
+import { getUpcomingSuccess, getNowPlayingSuccess } from './actions';
 
 export function* getUpcoming() {
     try {
@@ -32,4 +32,27 @@ export function* getUpcoming() {
     }
 }
 
-export default all([takeLatest(MovieTypes.GET_UPCOMING_REQUEST, getUpcoming)]);
+export function* getNowPlaying() {
+    try {
+        const response: AxiosResponse<IApiResponse<IMovie[]>> = yield call(
+            api.get,
+            '/movie/now_playing',
+            {
+                params: {
+                    api_key: API_KEY,
+                    page: 1,
+                    language: 'pt-BR',
+                },
+            },
+        );
+
+        yield put(getNowPlayingSuccess(response.data.results));
+    } catch (error) {
+        console.tron.log('error', error);
+    }
+}
+
+export default all([
+    takeLatest(MovieTypes.GET_UPCOMING_REQUEST, getUpcoming),
+    takeLatest(MovieTypes.GET_NOW_PLAYING_REQUEST, getNowPlaying),
+]);

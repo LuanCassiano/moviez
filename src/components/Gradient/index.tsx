@@ -4,14 +4,9 @@ import { IGradient } from './interface/IGradient';
 
 import * as Styled from './styles';
 
-const Gradient: React.FC<IGradient> = ({
-    height,
-    radius,
-    width,
-    text = 'Filme',
-}: IGradient) => {
+const Gradient: React.FC<IGradient> = ({ text = 'Filme' }: IGradient) => {
     return (
-        <Styled.Container width={width} height={height} radius={radius}>
+        <Styled.Container>
             <Styled.Content>
                 <Styled.Title>{text}</Styled.Title>
             </Styled.Content>

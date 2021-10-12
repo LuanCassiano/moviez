@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
+
 import { ColorPallete } from '../../global/Colors';
 import { FontFamily } from '../../global/Font';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
     flex: 1;
+    width: 100%;
     background-color: ${ColorPallete.PRIMARY};
 `;
 

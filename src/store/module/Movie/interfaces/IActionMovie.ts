@@ -11,4 +11,17 @@ interface IActionUpcomingSuccess extends Action {
     payload: IMovie[];
 }
 
-export type IActionMovie = IActionUpcomingRequest | IActionUpcomingSuccess;
+interface IActionNowPlayingRequest extends Action {
+    type: MovieTypes.GET_NOW_PLAYING_REQUEST;
+}
+
+interface IActionNowPlayingSuccess extends Action {
+    type: MovieTypes.GET_NOW_PLAYING_SUCCESS;
+    payload: IMovie[];
+}
+
+export type IActionMovie =
+    | IActionUpcomingRequest
+    | IActionUpcomingSuccess
+    | IActionNowPlayingRequest
+    | IActionNowPlayingSuccess;

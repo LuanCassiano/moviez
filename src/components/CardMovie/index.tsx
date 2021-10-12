@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-native';
 
 import { IMAGE_URL } from '../../global/Constants';
 
@@ -9,24 +8,14 @@ import * as Styled from './styles';
 
 import Gradient from '../Gradient';
 
-const CardMovie: React.FC<ICardMovie> = ({
-    height,
-    info,
-    radius,
-    width,
-}: ICardMovie) => {
+const CardMovie: React.FC<ICardMovie> = ({ info }: ICardMovie) => {
     return (
         <Styled.Card>
-            <Image
+            <Styled.CardMedia
                 source={{ uri: `${IMAGE_URL}${info.backdrop_path}` }}
-                style={{
-                    height: parseInt(height),
-                    width: parseInt(width),
-                    borderRadius: parseInt(radius),
-                }}
             />
 
-            <Gradient width="280" height="150" radius="10" text={info.title} />
+            <Gradient text={info.title} />
         </Styled.Card>
     );
 };

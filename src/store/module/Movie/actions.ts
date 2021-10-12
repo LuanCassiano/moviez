@@ -13,3 +13,16 @@ export function getUpcomingSuccess(data: IMovie[]) {
         payload: data,
     };
 }
+
+export function getNowPlayingRequest() {
+    return {
+        type: MovieTypes.GET_NOW_PLAYING_REQUEST,
+    };
+}
+
+export function getNowPlayingSuccess(data: IMovie[]) {
+    return {
+        type: MovieTypes.GET_NOW_PLAYING_SUCCESS,
+        payload: data,
+    };
+}
